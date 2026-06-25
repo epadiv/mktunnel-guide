@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mk体育 · 一个稳定的入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #ffe7d6 0%, #fcdcc4 45%, #fcd0af 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            color: #2d2a27;
+        }
+
+        .card {
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            max-width: 820px;
+            width: 100%;
+            border-radius: 48px 24px 48px 24px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 16px 40px -12px rgba(140, 85, 40, 0.3),
+                        0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.25s ease;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.4rem 0.8rem; }
+            .card { padding: 2rem 1.4rem; border-radius: 32px 16px 32px 16px; }
+        }
+
+        /* 开场短句 — 故事感 */
+        .opening-sentence {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #b07d5a;
+            border-left: 4px solid #dbaa7c;
+            padding-left: 1.1rem;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+            line-height: 1.6;
+            background: rgba(245, 216, 188, 0.18);
+            border-radius: 0 12px 12px 0;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 460;
+            letter-spacing: -0.3px;
+            color: #4a3525;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            display: inline-block;
+            background: #ecdac9;
+            color: #513c2b;
+            font-size: 0.85rem;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.6px;
+        }
+
+        .story-paragraph {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.6rem;
+            color: #3b332e;
+        }
+
+        .story-paragraph strong {
+            font-weight: 500;
+            color: #7c5a3f;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.6rem;
+            margin: 2.2rem 0 1.8rem 0;
+        }
+
+        .feature-item {
+            background: #faf5ef;
+            border-radius: 30px 10px 30px 10px;
+            padding: 1rem 1.2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border: 1px solid #ebdbcd;
+            transition: background 0.2s;
+        }
+
+        .feature-item span {
+            display: block;
+            font-weight: 460;
+            color: #754e30;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .feature-item:hover {
+            background: #f1e4d8;
+            border-color: #d5b79b;
+        }
+
+        @media (max-width: 550px) {
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+
+        .button-link-wrapper {
+            margin: 2.2rem 0 1.4rem 0;
+            text-align: left;
+        }
+
+        .button-link-wrapper p {
+            display: inline;
+            font-size: 1.05rem;
+            background: #fffbf7;
+            padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+            border-radius: 60px 12px 60px 12px;
+            box-shadow: 0 2px 8px rgba(176, 125, 80, 0.08);
+        }
+
+        .button-link-wrapper a {
+            display: inline-block;
+            background: #d9ad88;
+            color: #2a1f17;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+            border: 1px solid #bf916d;
+            margin-left: 0.2rem;
+            white-space: nowrap;
+        }
+
+        .button-link-wrapper a:hover {
+            background: #c79972;
+            color: #1e1610;
+            border-color: #a87d5c;
+            transform: scale(1.02);
+            box-shadow: 0 3px 8px rgba(159, 107, 57, 0.2);
+        }
+
+        .gentle-closing {
+            margin-top: 2.4rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed #dbc6b3;
+            font-size: 0.96rem;
+            color: #6a5544;
+            line-height: 1.6;
+        }
+
+        .faq-note {
+            background: #f7efe7;
+            border-radius: 30px 8px 30px 8px;
+            padding: 1.2rem 1.4rem;
+            margin: 1.8rem 0 0.8rem 0;
+            font-size: 0.92rem;
+            color: #4f3c2e;
+        }
+
+        .faq-note span {
+            font-weight: 460;
+            color: #754e30;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e6d4c3;
+            margin: 1.4rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: #9d887a;
+            margin-top: 1.6rem;
+            letter-spacing: 0.4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 开场短句：平和而确定 -->
+        <div class="opening-sentence">
+            ⚬ 当你需要回到一个熟悉的、稳定的地方，<br>安静地看一看，这里始终亮着灯。
+        </div>
+
+        <h1>mk体育</h1>
+        <div class="subhead">· 从入口到页面，不多绕一步 ·</div>
+
+        <!-- 承接段落：从稳定入口与页面说明展开 -->
+        <p class="story-paragraph">
+            打开浏览器，输入地址，页面缓缓出现——整个过程里，最踏实的感觉莫过于<strong>入口稳定</strong>。
+            mk体育的访问路径很简单：没有复杂的跳转、没有冗余的中转页，
+            一个直达的域名就是它最朴素的承诺。从你点击书签或输入网址那一刻起，
+            页面就开始回应你，不拖沓，不绕路。
+        </p>
+
+        <p class="story-paragraph">
+            很多人习惯把<a href="https://mktunnel.com.cn" style="color:#865f41; font-weight:500; text-decoration:underline wavy #d9ad88 1px; text-underline-offset:4px;">mk体育</a>放在浏览器收藏夹第一栏，
+            因为它几乎不需要“适应”——每次打开，布局、响应、信息流都保持着自己的节奏。
+            这种一致性，反而成了最不容易被察觉的体贴。你不需要重新学习怎么用，只需要继续看下去。
+        </p>
+
+        <!-- 特点列表：卡牌式 2 col -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span>⇲ 直达的感觉</span>
+                页面轻量、干净，不堆积多余模块，每次加载都接近直觉。
+            </div>
+            <div class="feature-item">
+                <span>⇲ 稳定的框架</span>
+                不论设备或网络状态，内容结构始终对齐，不左右晃动。
+            </div>
+            <div class="feature-item">
+                <span>⇲ 克制的说明</span>
+                每个入口、每个链接都有清晰的指向，不夸大也不含糊。
+            </div>
+            <div class="feature-item">
+                <span>⇲ 日常的陪伴</span>
+                从体育资讯到信息流，它慢慢变成一种背景一样的熟悉存在。
+            </div>
+        </div>
+
+        <!-- 按钮感链接，自然嵌入句子 -->
+        <div class="button-link-wrapper">
+            <p>
+                如果你想直接过去看看，
+                <a href="https://mktunnel.com.cn">mk体育</a>
+                就在那里，不急不躁。
+            </p>
+        </div>
+
+        <!-- 温和结尾 + FAQ摘要氛围 -->
+        <div class="gentle-closing">
+            <p>页面本身不会主动推给你什么，它只是干干净净地呈现。入口的意义不是制造紧迫感，而是让你知道：只要你需要，它就在。</p>
+        </div>
+
+        <!-- FAQ 风格小摘要，半故事半提示 -->
+        <div class="faq-note">
+            <span>❖ 一些你可能想了解的</span><br>
+            · 这个地址一直用于访问 mk体育 的主要内容区域，没有隐藏路径。<br>
+            · 页面加载时间通常在 1–3 秒内（视网络情况），图片与内容均经过适当优化。<br>
+            · 如果你发现页面显示异常，可以尝试刷新或清除缓存，结构仍会保持一致。
+        </div>
+
+        <hr>
+        <div class="footer-note">
+            mk体育 · 一个入口，一种稳定
+        </div>
+    </div>
+</body>
+</html>
